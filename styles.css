@@ -215,7 +215,7 @@ body {
     .hero {
         background-position: center bottom !important;
         background-size: 150% auto !important; /* zoom to emphasize floor */
-        background-image: url('images/primeraimagenmobile.jpg') !important;
+        background-image: url('images/primeraimagenmobile.JPG') !important;
         min-height: 45vh !important;
         align-items: flex-end !important; /* make content sit lower so the floor is visible */
         padding: 40px 20px !important;
