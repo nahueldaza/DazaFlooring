@@ -464,6 +464,259 @@ body {
     text-align: center;
 }
 
+/* ===== NUESTROS TRABAJOS - Progreso Paso a Paso ===== */
+.nuestros-trabajos {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+}
+
+.nuestros-trabajos .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nuestros-trabajos h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.nuestros-trabajos h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.trabajos-desc {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Carrusel Horizontal */
+.carousel-container {
+    overflow: visible;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 0;
+    padding: 1rem 0;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-type: x mandatory;
+    
+    /* Ocultar scrollbar pero permitir scroll */
+    scrollbar-width: none;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+    max-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+@media (max-width: 640px) {
+    .carousel-item {
+        flex: 0 0 100vw;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .carousel-item {
+        flex: 0 0 100vw;
+    }
+}
+
+@media (min-width: 1025px) {
+    .carousel-item {
+        flex: 0 0 100%;
+    }
+}
+
+/* Encabezado del paso */
+.step-header {
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.step-header h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Contenedor antes y después del paso */
+.before-after-pair {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Contenedor de la imagen */
+.slide-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Para fotos verticales de smartphone */
+    flex: 1;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+.slide-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.slide-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 500px;
+    transition: transform 0.3s ease;
+}
+
+.slide-content:hover .slide-image {
+    transform: scale(1.02);
+}
+
+
+
+/* Puntos indicadores del carrusel */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.carousel-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.carousel-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+    border-color: var(--secondary-color);
+}
+
+.carousel-dot:hover {
+    background: var(--primary-color);
+    transform: scale(1.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nuestros-trabajos h2 {
+        font-size: 2rem;
+    }
+    
+    .trabajos-desc {
+        font-size: 1rem;
+    }
+    
+    .carousel-wrapper {
+        gap: 1.5rem;
+    }
+    
+    .before-after-pair {
+        gap: 0.8rem;
+    }
+    
+    .slide-content {
+        max-width: 250px;
+    }
+    
+    .slide-image {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nuestros-trabajos {
+        padding: 60px 20px;
+    }
+    
+    .nuestros-trabajos h2 {
+        font-size: 1.8rem;
+    }
+    
+    .trabajos-desc {
+        font-size: 0.95rem;
+    }
+    
+    .carousel-wrapper {
+        gap: 1rem;
+    }
+    
+    .before-after-pair {
+        gap: 0.6rem;
+    }
+    
+    .slide-content {
+        max-width: 180px;
+        min-width: 120px;
+    }
+    
+    .slide-image {
+        max-height: 350px;
+    }
+    
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .slide-label {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+    
+    .step-header h3 {
+        font-size: 1.1rem;
+    }
+}
+
 /* Nosotros */
 .nosotros {
     padding: 80px 20px;

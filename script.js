@@ -225,3 +225,117 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+
+// ==================== CARRUSEL NUESTROS TRABAJOS ====================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel-wrapper');
+    const dotsContainer = document.getElementById('carouselDots');
+    const items = document.querySelectorAll('.carousel-item');
+    
+    if (!carousel || !items.length) return;
+    
+    let currentIndex = 0;
+    const itemCount = items.length;
+    let isScrolling = false;
+    
+    // Crear puntos indicadores
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < itemCount; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => scrollToItem(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+    
+    // Desplazarse a un item específico
+    function scrollToItem(index) {
+        currentIndex = Math.max(0, Math.min(index, itemCount - 1));
+        const item = items[currentIndex];
+        
+        isScrolling = true;
+        carousel.scrollLeft = item.offsetLeft;
+        updateDots();
+        
+        setTimeout(() => {
+            isScrolling = false;
+        }, 500);
+        
+        // Registrar en Google Analytics
+        if (typeof gtag !== 'undefined') {
+            const pasos = ['Descolociación', 'Instalación', 'Finalizado'];
+            gtag('event', 'work_step_view', {
+                'event_category': 'engagement',
+                'event_label': pasos[currentIndex] || `Paso ${currentIndex + 1}`,
+                'value': currentIndex + 1
+            });
+        }
+    }
+    
+    // Actualizar puntos activos
+    function updateDots() {
+        const dots = document.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+    
+    // Detectar scroll y actualizar índice actual
+    let scrollTimeout;
+    carousel.addEventListener('scroll', () => {
+        if (isScrolling) return;
+        
+        clearTimeout(scrollTimeout);
+        
+        const scrollLeft = carousel.scrollLeft;
+        
+        // Encontrar el item más cercano que está siendo visto
+        let closestIndex = 0;
+        let closestDistance = Math.abs(items[0].offsetLeft - scrollLeft);
+        
+        items.forEach((item, index) => {
+            const distance = Math.abs(item.offsetLeft - scrollLeft);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+        
+        if (closestIndex !== currentIndex) {
+            currentIndex = closestIndex;
+            updateDots();
+        }
+    }, { passive: true });
+    
+    // Inicializar
+    createDots();
+    
+    // Touch support para móvil - mejorar experiencia de swipe
+    let touchStartX = 0;
+    let touchStartTime = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartTime = Date.now();
+    }, { passive: true });
+    
+    carousel.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndTime = Date.now();
+        const duration = touchEndTime - touchStartTime;
+        const diff = touchStartX - touchEndX;
+        
+        // Si el swipe es significativo (más de 30px) y rápido (menos de 300ms)
+        if (Math.abs(diff) > 30 && duration < 300) {
+            if (diff > 0 && currentIndex < itemCount - 1) {
+                // Swipe izquierda - siguiente paso
+                scrollToItem(currentIndex + 1);
+            } else if (diff < 0 && currentIndex > 0) {
+                // Swipe derecha - paso anterior
+                scrollToItem(currentIndex - 1);
+            }
+        }
+    }, { passive: true });
+});
