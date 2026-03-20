@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Smooth scroll para los enlaces de navegación - ANIMACIÓN PERSONALIZADA CON VELOCIDAD CONSISTENTE
 function smoothScroll(target, duration = 350) {
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-    const scrollMargin = 100; // Respeta el scroll-margin-top
+    const scrollMargin = 140; // Respeta el scroll-margin-top
     const finalPosition = targetPosition - scrollMargin;
     const startPosition = window.scrollY;
     const distance = finalPosition - startPosition;
