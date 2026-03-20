@@ -1036,7 +1036,7 @@ body {
     /* Nav se oculta por defecto y aparece como dropdown */
     .nav {
         position: absolute;
-        top: 70px;
+        top: 100%;
         right: 0;
         left: 0;
         background: linear-gradient(var(--secondary-color));
@@ -1144,7 +1144,7 @@ body {
     }
 
     .nav {
-        top: 60px;
+        top: 100%;
         font-size: 0.9rem;
         max-height: 0;
         opacity: 0;
