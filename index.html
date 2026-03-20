@@ -169,79 +169,164 @@
         </div>
     </section>
 
-    <!-- Nuestros Trabajos - Progreso Paso a Paso -->
+    <!-- Nuestros Trabajos - Múltiples Obras -->
     <section id="nuestros-trabajos" class="nuestros-trabajos">
         <div class="container">
             <h2>Nuestros Trabajos</h2>
-            <p class="trabajos-desc">Instalacion de piso laminado waterproof simil porcelanato, satinado, biselado.</p>
-            <div class="carousel-container">
-                <div class="carousel-wrapper" id="carouselWrapper">
-                    <!-- PASO 1: DESCOLOCIACIÓN -->
-                    <div class="carousel-item">
-                        <div class="step-header">
-                            <h3>Descolociación</h3>
-                            <p>Primera Etapa: descolocacion  piso  de madera</p>
-                        </div>
-                        <div class="before-after-pair">
-                            <div class="slide-content">
-                                <img src="images/proyecto1 descolocacion.jpeg" alt="Descolociación - Antes" class="slide-image">
-                            </div>
-                            <div class="slide-content">
-                                <img src="images/proyecto1 descolocacion2.jpeg" alt="Descolociación - Después" class="slide-image">
-                            </div>
-                        </div>
-                    </div>
+            <p class="trabajos-desc">Selecciona para ver el progreso de nuestros trabajos</p>
+            
+            <!-- Selector de Obras -->
+            <div class="obras-selector">
+                <button class="obra-btn active" data-obra="1">Instalacion de Piso</button>
+                <button class="obra-btn" data-obra="2">Revestimiento Wall Panel</button>
+            </div>
 
-                     <!-- PASO 2: CARPETA -->
-                    <div class="carousel-item">
-                        <div class="step-header">
-                            <h3>Nivelacion</h3>
-                            <p>Segunda etapa: nivelacion de carpeta  superficie total</p>
-                        </div>
-                        <div class="before-after-pair">
-                            <div class="slide-content">
-                                <img src="images/proyecto1 carpeta.jpeg" alt="Nivelación - Antes" class="slide-image">
+            <!-- OBRA 1 -->
+            <div class="obra-container active" id="obra-1">
+                <p class="obra-desc">Instalacion de piso laminado waterproof simil porcelanato, satinado, biselado.</p>
+                <div class="carousel-container">
+                    <div class="carousel-wrapper" id="carouselWrapper1">
+                        <!-- PASO 1: DESCOLOCIACIÓN -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Descolociación</h3>
+                                <p>Primera Etapa: descolocacion piso de madera</p>
                             </div>
-                            <div class="slide-content">
-                                <img src="images/proyecto1 carpeta1.jpeg" alt="Nivelación - Después" class="slide-image">
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 descolocacion.jpeg" alt="Descolociación - Antes" class="slide-image">
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 descolocacion2.jpeg" alt="Descolociación - Después" class="slide-image">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- PASO 3: INSTALACIÓN -->
-                    <div class="carousel-item">
-                        <div class="step-header">
-                            <h3>Instalación</h3>
-                            <p>Tercera etapa: inicio de instalacion de piso</p>
-                        </div>
-                        <div class="before-after-pair">
-                            <div class="slide-content">
-                                <img src="images/proyecto1 instalacion1.jpeg" alt="Instalación - Antes" class="slide-image">
+                        <!-- PASO 2: CARPETA -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Nivelacion</h3>
+                                <p>Segunda etapa: nivelacion de carpeta superficie total</p>
                             </div>
-                            <div class="slide-content">
-                                <img src="images/proyecto1 instalacion2.jpeg" alt="Instalación - Después" class="slide-image">
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 carpeta.jpeg" alt="Nivelación - Antes" class="slide-image">
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 carpeta1.jpeg" alt="Nivelación - Después" class="slide-image">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- PASO 4: FINALIZADO -->
-                    <div class="carousel-item">
-                        <div class="step-header">
-                            <h3>Trabajo Finalizado</h3>
-                            <p>Cuarta etapa: culminación del trabajo de piso laminado waterproof, símil porcelanato, acabado satinado y biselado. Placas de 1,20 m x 0,30 m, espesor de 7,5 mm, origen suizo.</p>
-                        </div>
-                        <div class="before-after-pair">
-                            <div class="slide-content">
-                                <img src="images/proyecto1 finalizado1.jpeg" alt="Finalizado - Antes" class="slide-image">
+                        <!-- PASO 3: INSTALACIÓN -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Instalación</h3>
+                                <p>Tercera etapa: inicio de instalacion de piso</p>
                             </div>
-                            <div class="slide-content">
-                                <img src="images/proyecto1 finalizado2.jpeg" alt="Finalizado - Después" class="slide-image">
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 instalacion1.jpeg" alt="Instalación - Antes" class="slide-image">
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 instalacion2.jpeg" alt="Instalación - Después" class="slide-image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASO 4: FINALIZADO -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Trabajo Finalizado</h3>
+                                <p>Cuarta etapa: culminación del trabajo de piso laminado waterproof, símil porcelanato, acabado satinado y biselado.</p>
+                            </div>
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 finalizado1.jpeg" alt="Finalizado - Antes" class="slide-image">
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/proyecto1/proyecto1 finalizado2.jpeg" alt="Finalizado - Después" class="slide-image">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="carousel-dots" id="carouselDots1"></div>
             </div>
-            <div class="carousel-dots" id="carouselDots"></div>
+
+            <!-- OBRA 2 -->
+            <div class="obra-container" id="obra-2">
+                <p class="obra-desc">Instalación de revestimiento Wall Panel.</p>
+                <div class="carousel-container">
+                    <div class="carousel-wrapper" id="carouselWrapper2">
+                        <!-- PASO 1 -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Paso 1</h3>
+                                <p>Primera etapa: Se puede instalar directamente sobre la pared o sobre alfajías, dependiendo de si las paredes presentan humedad o no. </p>
+                            </div>
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto2/proyecto2 paredvacia.jpeg" alt="Paso 1 - Antes" class="slide-image">
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/proyecto2/proyecto2 paredvacia1.jpeg" alt="Paso 1 - Después" class="slide-image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASO 2 -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Paso 2</h3>
+                                <p>Segunda etapa: Instalacion de alfajias, pared con humedad.</p>
+                            </div>
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto2/proyecto2 alfajias.jpeg" alt="Paso 2 - Antes" class="slide-image">
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/proyecto2/proyecto2 alfajias1.jpeg" alt="Paso 2 - Después" class="slide-image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASO 3 -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Paso 3</h3>
+                                <p>Tercera etapa: Instalacion de WallPanel.</p>
+                            </div>
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto2/proyecto2 instalacion.jpeg" alt="Paso 3 - Antes" class="slide-image">
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/proyecto2/proyecto2 instalacion1.jpeg" alt="Paso 3 - Después" class="slide-image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASO 4: UNA SOLA FOTO -->
+                        <div class="carousel-item">
+                            <div class="step-header">
+                                <h3>Trabajo Finalizado</h3>
+                                <p>Cuarta etapa: Trabajo finalizado, revestimiento Wall Panel instalado.</p>
+                            </div>
+                            <div class="before-after-pair">
+                                <div class="slide-content">
+                                    <img src="images/proyecto2/proyecto2 terminado.jpeg" alt="Trabajo Finalizado" class="slide-image">
+                                </div>
+                                <video class="slide-content" controls>
+                                    <source src="images/proyecto2/proyecto2 terminadovideo.mp4" type="video/mp4">
+                                    Daza easter egg
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots2"></div>
+            </div>
         </div>
     </section>
 
@@ -253,37 +338,37 @@
             <div class="galeria-grid">
                 <!-- Placeholder para imágenes -->
                 <div class="galeria-item">
-                    <img src="images/galeia piso flotante.jpg" alt="Trabajo 1">
+                    <img src="images/galeria/galeriapisoflotante.jpeg" alt="Trabajo 1">
                     <div class="galeria-overlay">
                         <p>Instalacion Pisos Flotantes</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="images/galeria baño revestimiento.jpg" alt="Trabajo 2">
+                    <img src="images/galeria/galeriawallpanel.jpeg" alt="Trabajo 2">
                     <div class="galeria-overlay">
-                        <p>Revestimiento de Baños</p>
+                        <p>Revestimiento Wallpanel</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="images/galeria cocina revestimiento.jpg" alt="Trabajo 3">
+                    <img src="images/galeria/galeria cocina revestimiento.jpg" alt="Trabajo 3">
                     <div class="galeria-overlay">
                         <p>Instalacion Pisos Flotantes</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="images/galeria revestimiento interiorres.jpg" alt="Trabajo 4">
+                    <img src="images/galeria/galeria revestimiento interiorres.jpg" alt="Trabajo 4">
                     <div class="galeria-overlay">
                         <p>Revestimiento de Interiores</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="images/galeria piso comercial.jpg" alt="Trabajo 5">
+                    <img src="images/galeria/galeria piso comercial.jpg" alt="Trabajo 5">
                     <div class="galeria-overlay">
                         <p>Instalacion Pisos Flotantes</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="images/revestimiento dormitorio.jpg" alt="Trabajo 6">
+                    <img src="images/galeria/galeria dormitorio.jpg" alt="Trabajo 6">
                     <div class="galeria-overlay">
                         <p>Revestimiento de Dormitorios</p>
                     </div>
