@@ -20,6 +20,17 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Scroll padding para todos los sections con ids */
+#inicio,
+#servicios,
+#nuestros-trabajos,
+#galeria,
+#nosotros,
+#contacto {
+    scroll-margin-top: 100px;
 }
 
 /* Preloader */
@@ -215,7 +226,7 @@ body {
     .hero {
         background-position: center bottom !important;
         background-size: 150% auto !important; /* zoom to emphasize floor */
-        background-image: url('images/primeraimagenmobile.JPG') !important;
+        background-image: url('images/primera\ imagen\ mobile.JPG') !important;
         min-height: 45vh !important;
         align-items: flex-end !important; /* make content sit lower so the floor is visible */
         padding: 40px 20px !important;
@@ -227,7 +238,7 @@ body {
 }
 
 .hero {
-    background-image: url('images/ChatGPT\ Image\ 13\ feb\ 2026\,\ 08_44_07.png');
+    background-image: url('images/primera\ imagen\ desktop.png');
     color: white;
     text-align: center;
     position: relative;
@@ -504,6 +515,68 @@ body {
     font-size: 1.1rem;
 }
 
+/* Selector de Obras */
+.obras-selector {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.obra-btn {
+    padding: 12px 30px;
+    border: 2px solid var(--secondary-color);
+    background: transparent;
+    color: var(--secondary-color);
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.obra-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.obra-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 68, 119, 0.3);
+}
+
+/* Contenedor de Obra */
+.obra-container {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.obra-container.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.obra-desc {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    font-style: italic;
+}
+
 /* Carrusel Horizontal */
 .carousel-container {
     overflow: visible;
@@ -594,6 +667,10 @@ body {
     flex: 1;
     min-width: 150px;
     max-width: 300px;
+    height: 400px;  /* Altura fija para todos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slide-content:hover {
@@ -603,10 +680,9 @@ body {
 
 .slide-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: contain;
-    max-height: 500px;
     transition: transform 0.3s ease;
 }
 
@@ -666,10 +742,7 @@ body {
     
     .slide-content {
         max-width: 250px;
-    }
-    
-    .slide-image {
-        max-height: 400px;
+        height: 350px;
     }
 }
 
@@ -697,10 +770,7 @@ body {
     .slide-content {
         max-width: 180px;
         min-width: 120px;
-    }
-    
-    .slide-image {
-        max-height: 350px;
+        height: 300px;
     }
     
     .carousel-dot {

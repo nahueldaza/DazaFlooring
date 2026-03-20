@@ -226,12 +226,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ==================== CARRUSEL NUESTROS TRABAJOS ====================
+// ==================== CARRUSEL NUESTROS TRABAJOS - MÚLTIPLES OBRAS ====================
 
 document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel-wrapper');
-    const dotsContainer = document.getElementById('carouselDots');
-    const items = document.querySelectorAll('.carousel-item');
+    
+    // Selector de Obras
+    const obraBtns = document.querySelectorAll('.obra-btn');
+    const obraContainers = document.querySelectorAll('.obra-container');
+    
+    obraBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const obraId = this.getAttribute('data-obra');
+            
+            // Remover active de todos los botones y contenedores
+            obraBtns.forEach(b => b.classList.remove('active'));
+            obraContainers.forEach(c => c.classList.remove('active'));
+            
+            // Agregar active al botón y contenedor seleccionado
+            this.classList.add('active');
+            document.getElementById(`obra-${obraId}`).classList.add('active');
+            
+            // Registrar en Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'work_selection', {
+                    'event_category': 'engagement',
+                    'event_label': `Obra ${obraId}`,
+                    'value': parseInt(obraId)
+                });
+            }
+        });
+    });
+    
+    // Inicializar carrusel para cada obra
+    initCarousel('carouselWrapper1', 'carouselDots1');
+    initCarousel('carouselWrapper2', 'carouselDots2');
+});
+
+function initCarousel(wrapperId, dotsId) {
+    const carousel = document.getElementById(wrapperId);
+    const dotsContainer = document.getElementById(dotsId);
+    const items = carousel.querySelectorAll('.carousel-item');
     
     if (!carousel || !items.length) return;
     
@@ -265,10 +299,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Registrar en Google Analytics
         if (typeof gtag !== 'undefined') {
-            const pasos = ['Descolociación', 'Instalación', 'Finalizado'];
-            gtag('event', 'work_step_view', {
+            gtag('event', 'carousel_step_view', {
                 'event_category': 'engagement',
-                'event_label': pasos[currentIndex] || `Paso ${currentIndex + 1}`,
+                'event_label': `Paso ${currentIndex + 1}`,
                 'value': currentIndex + 1
             });
         }
@@ -276,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Actualizar puntos activos
     function updateDots() {
-        const dots = document.querySelectorAll('.carousel-dot');
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
         dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === currentIndex);
         });
@@ -327,15 +360,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const duration = touchEndTime - touchStartTime;
         const diff = touchStartX - touchEndX;
         
-        // Si el swipe es significativo (más de 30px) y rápido (menos de 300ms)
+        // Si el swipe es significativo y rápido
         if (Math.abs(diff) > 30 && duration < 300) {
             if (diff > 0 && currentIndex < itemCount - 1) {
-                // Swipe izquierda - siguiente paso
                 scrollToItem(currentIndex + 1);
             } else if (diff < 0 && currentIndex > 0) {
-                // Swipe derecha - paso anterior
                 scrollToItem(currentIndex - 1);
             }
         }
     }, { passive: true });
-});
+}
