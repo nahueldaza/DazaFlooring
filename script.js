@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Smooth scroll para los enlaces de navegación - ANIMACIÓN PERSONALIZADA CON VELOCIDAD CONSISTENTE
-function smoothScroll(target, duration = 1200) {
+function smoothScroll(target, duration = 700) {
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     const scrollMargin = 100; // Respeta el scroll-margin-top
     const finalPosition = targetPosition - scrollMargin;
@@ -221,8 +221,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         if (target) {
             e.preventDefault();
-            // Usar la función de scroll personalizada con duración de 1.2 segundos
-            smoothScroll(target, 1200);
+            // Usar la función de scroll personalizada con duración de 0.7 segundos
+            smoothScroll(target, 700);
         }
     });
 });
