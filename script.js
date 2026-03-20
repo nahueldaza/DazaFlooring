@@ -13,6 +13,39 @@ window.addEventListener('load', function() {
     }, 2000);
 });
 
+// ==================== MENÚ HAMBURGUESA ====================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = navMenu.querySelectorAll('a');
+    
+    // Toggle menú al hacer clic en el botón hamburguesa
+    menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.header-content')) {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+});
+
+// ==================== WHATSAPP CLICK CONFIRMATION ====================
+
 // WhatsApp Click Confirmation Message
 document.addEventListener('DOMContentLoaded', function() {
     const whatsappLinks = document.querySelectorAll('.whatsapp-link');
@@ -187,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Smooth scroll para los enlaces de navegación - ANIMACIÓN PERSONALIZADA CON VELOCIDAD CONSISTENTE
 function smoothScroll(target, duration = 350) {
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-    const scrollMargin = 140; // Respeta el scroll-margin-top
+    const scrollMargin = window.innerWidth <= 768 ? 70 : 100; // Ajusta según el ancho de pantalla
     const finalPosition = targetPosition - scrollMargin;
     const startPosition = window.scrollY;
     const distance = finalPosition - startPosition;
