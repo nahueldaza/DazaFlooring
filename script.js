@@ -184,17 +184,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Smooth scroll para los enlaces de navegación
+// Smooth scroll para los enlaces de navegación - ANIMACIÓN PERSONALIZADA CON VELOCIDAD CONSISTENTE
+function smoothScroll(target, duration = 1200) {
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    const scrollMargin = 100; // Respeta el scroll-margin-top
+    const finalPosition = targetPosition - scrollMargin;
+    const startPosition = window.scrollY;
+    const distance = finalPosition - startPosition;
+    
+    let start = null;
+    
+    function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const elapsed = currentTime - start;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Curva de easing para un movimiento suave (ease-in-out)
+        const easeProgress = progress < 0.5 
+            ? 2 * progress * progress 
+            : -1 + (4 - 2 * progress) * progress;
+        
+        window.scrollTo(0, startPosition + distance * easeProgress);
+        
+        if (elapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+    
+    requestAnimationFrame(animation);
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        const target = document.querySelector(href);
         
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            e.preventDefault();
+            // Usar la función de scroll personalizada con duración de 1.2 segundos
+            smoothScroll(target, 1200);
         }
     });
 });

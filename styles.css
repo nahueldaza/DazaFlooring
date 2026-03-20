@@ -41,7 +41,6 @@ body {
     #nosotros,
     #contacto {
         scroll-margin-top: 80px;
-        scroll-behavior: smooth;
     }
 }
 
@@ -53,7 +52,6 @@ body {
     #nosotros,
     #contacto {
         scroll-margin-top: 140px;
-        scroll-behavior: smooth;
     }
 }
 
