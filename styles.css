@@ -33,6 +33,28 @@ body {
     scroll-margin-top: 100px;
 }
 
+@media (max-width: 768px) {
+    #inicio,
+    #servicios,
+    #nuestros-trabajos,
+    #galeria,
+    #nosotros,
+    #contacto {
+        scroll-margin-top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    #inicio,
+    #servicios,
+    #nuestros-trabajos,
+    #galeria,
+    #nosotros,
+    #contacto {
+        scroll-margin-top: 60px;
+    }
+}
+
 /* Preloader */
 .preloader {
     position: fixed;
